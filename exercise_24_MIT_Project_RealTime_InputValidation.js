@@ -1,0 +1,1 @@
+const char = document.querySelector('.char');
