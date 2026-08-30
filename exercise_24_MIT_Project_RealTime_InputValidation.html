@@ -22,7 +22,7 @@
             width: 100vw;
         }
         section{
-            height: 150px;
+            height: 200px;
             width: 500px;
             border-radius: 12px;
             background-color: white;
@@ -36,6 +36,15 @@
             justify-content: space-between;
             align-items: center;
         }
+        textarea{
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 2px solid rgb(160, 154, 154);
+            border-radius: 8px;
+            font-size: 14px;
+            
+        }
 
     </style>
 </head>
@@ -43,7 +52,7 @@
     <main>
         <section class="liveText">
         <h3>1. Live Text Analyzer (Tewwt/Message Input)</h3>
-        <input type="textarea">
+        <textarea class="liveText" placeholder="Type something..."></textarea>
         <div class="bottomSection">
         <p class="char">Characters : <span class="charNum"></span></p>
         <p class="word">Words : <span class="wordNum"></span></p>
@@ -56,6 +65,7 @@
             <p>Enter a Password</p>
         </section>
     </main>
+    
 
     <script src="exercise_24_MIT_Project_RealTime_InputValidation.js"></script>
     
