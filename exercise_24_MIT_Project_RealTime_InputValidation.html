@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Input & PassWord Validation</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            background-color: rgb(192, 186, 186);
+            height: 100vh;
+            width: 100vw;
+        }
+        section{
+            height: 150px;
+            width: 500px;
+            border-radius: 12px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .bottomSection{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section class="liveText">
+        <h3>1. Live Text Analyzer (Tewwt/Message Input)</h3>
+        <input type="textarea">
+        <div class="bottomSection">
+        <p class="char">Characters : <span class="charNum"></span></p>
+        <p class="word">Words : <span class="wordNum"></span></p>
+        </div>
+        </section>
+        <section class="passwordArea">
+            <h3>2. Real-Time Password Strength</h3>
+            <input type="password" name="" id="">
+            <div class="indicator"></div>
+            <p>Enter a Password</p>
+        </section>
+    </main>
+
+    <script src="exercise_24_MIT_Project_RealTime_InputValidation.js"></script>
+    
+</body>
+</html>
