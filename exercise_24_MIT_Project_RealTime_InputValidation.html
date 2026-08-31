@@ -20,52 +20,87 @@
             background-color: rgb(192, 186, 186);
             height: 100vh;
             width: 100vw;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        section{
-            height: 200px;
-            width: 500px;
-            border-radius: 12px;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
+        section {
+    height: fit-content;
+    width: 500px;
+    border-radius: 12px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+        textarea{
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
+        textarea, input{
+            padding: 12px;
+            border: 2px solid rgb(160, 154, 154);
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
         }
         .bottomSection{
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        textarea{
-            width: 100%;
-            height: 100px;
-            padding: 12px;
-            border: 2px solid rgb(160, 154, 154);
-            border-radius: 8px;
-            font-size: 14px;
-            
+        p{
+            color: gray;
+            font-size: 13px;
         }
+        span{
+            font-weight: 700;
+        }
+        .indicatorTrack {
+            width: 100%;
+            height: 8px;
+            border-radius: 12px;
+            background-color: rgb(213, 213, 213);
+            overflow: hidden;
+        }
+.indicator {
+    width: 0%;
+    height: 100%;
+    border-radius: 12px;
+    background-color: transparent;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.indicatorMessage {
+    font-weight: 700;
+    font-size: 14px;
+}
 
     </style>
 </head>
 <body>
     <main>
+        <!-- Widget 1: Live Text Analyzer -->
         <section class="liveText">
-        <h3>1. Live Text Analyzer (Tewwt/Message Input)</h3>
-        <textarea class="liveText" placeholder="Type something..."></textarea>
+        <h3>1. Live Text Analyzer (Text/Message Input)</h3>
+        <textarea class="liveTextArea" placeholder="Start typing here..."></textarea>
         <div class="bottomSection">
-        <p class="char">Characters : <span class="charNum"></span></p>
-        <p class="word">Words : <span class="wordNum"></span></p>
+        <p class="char">Characters : <span class="charNum">0</span>/280</p>
+        <p class="word">Words : <span class="wordNum">0</span></p>
         </div>
         </section>
+
+         <!-- Widget 2: Real-Time Password Strength Checker -->
         <section class="passwordArea">
             <h3>2. Real-Time Password Strength</h3>
-            <input type="password" name="" id="">
-            <div class="indicator"></div>
-            <p>Enter a Password</p>
+            <input type="password" class="password" placeholder="Choose a secure password">
+            <div class="indicatorTrack">
+                <div class="indicator"></div>
+            </div>
+            <p class="indicatorMessage">Enter a password</p>
         </section>
     </main>
-    
 
     <script src="exercise_24_MIT_Project_RealTime_InputValidation.js"></script>
     
