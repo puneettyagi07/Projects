@@ -7,22 +7,28 @@ const passwordInput = document.querySelector('.password');
 const indicatorDisplay = document.querySelector('.indicator');
 const indicatorMessageDisplay = document.querySelector('.indicatorMessage');
 
-
-// Exercise 24 Js
-
 // *** WIDGET 1: LIVE TEXT ANALYZER ***
 textArea.addEventListener('input', () => {
     const text = textArea.value;
     const charCount = text.length;
 
-    // Calculate word count ignoring multiple spaces
-    const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+    let wordCount = 0;
+    let inWord = false;
 
-    // Update DOM counts
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] !== " " && text[i] !== "\n") {
+            if (inWord === false) {
+                wordCount++;
+                inWord = true;
+            }
+        } else {
+            inWord = false;
+        }
+    }
+
     charNumDisplay.textContent = charCount;
     wordNumDisplay.textContent = wordCount;
 
-    // Turn character text red if limit exceeds 280 characters
     if (charCount > 280) {
         charParagraph.style.color = '#ef4444';
     } else {
@@ -34,8 +40,7 @@ textArea.addEventListener('input', () => {
 passwordInput.addEventListener('input', () => {
     const password = passwordInput.value;
 
-    // Handle empty state
-    if (password === '') {
+    if (password.length === 0) {
         indicatorMessageDisplay.textContent = 'Enter a password';
         indicatorMessageDisplay.style.color = 'gray';
         indicatorDisplay.style.width = '0%';
@@ -43,28 +48,61 @@ passwordInput.addEventListener('input', () => {
         return;
     }
 
-    // Evaluate Criteria Score
+    let hasNumber = false;
+    let hasSpecial = false;
+    const specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/";
+
+    for (let i = 0; i < password.length; i++) {
+        let char = password[i];
+
+        if (char >= '0' && char <= '9') {
+            hasNumber = true;
+        }
+
+        if (specialChars.includes(char)) {
+            hasSpecial = true;
+        }
+    }
+
     let score = 0;
     if (password.length > 5) score++;
     if (password.length >= 8) score++;
-    if (/\d/.test(password)) score++; // Regex: Contains at least one digit
-    if (/[^a-zA-Z0-9]/.test(password)) score++;   // Regex: Contains at least one special character
+    if (hasNumber === true) score++;
+    if (hasSpecial === true) score++;
 
-    // Update Strength Indicator Bar & Message based on score
     if (score <= 2) {
         indicatorMessageDisplay.textContent = 'Weak';
-        indicatorMessageDisplay.style.color = '#ef4444';
+        indicatorMessageDisplay.style.color = 'red';
         indicatorDisplay.style.width = '33%';
-        indicatorDisplay.style.backgroundColor = '#ef4444';
+        indicatorDisplay.style.backgroundColor = 'red';
     } else if (score === 3) {
         indicatorMessageDisplay.textContent = 'Moderate';
-        indicatorMessageDisplay.style.color = '#f59e0b';
+        indicatorMessageDisplay.style.color = 'orange';
         indicatorDisplay.style.width = '66%';
-        indicatorDisplay.style.backgroundColor = '#f59e0b';
-    } else if (score === 4) {
+        indicatorDisplay.style.backgroundColor = 'orange';
+    } else {
         indicatorMessageDisplay.textContent = 'Strong!';
-        indicatorMessageDisplay.style.color = '#22c55e';
+        indicatorMessageDisplay.style.color = 'green';
         indicatorDisplay.style.width = '100%';
-        indicatorDisplay.style.backgroundColor = '#22c55e';
+        indicatorDisplay.style.backgroundColor = 'green';
+    }
+});
+
+// --- TOGGLE PASSWORD EYE ICON LOGIC ---
+
+const togglePasswordBtn = document.querySelector('.togglePasswordBtn');
+
+// SVG Icon Strings
+const eyeOpenSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+
+const eyeClosedSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`;
+
+togglePasswordBtn.addEventListener('click', () => {
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePasswordBtn.innerHTML = eyeOpenSVG;
+    } else {
+        passwordInput.type = 'password';
+        togglePasswordBtn.innerHTML = eyeClosedSVG;
     }
 });
