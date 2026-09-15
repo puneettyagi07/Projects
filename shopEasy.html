@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopEasy — Discover Amazing Products</title>
+  <link rel="stylesheet" href="shopEasy.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <nav class="nav-container">
+      <div class="logo">ShopEasy</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="cart-btn" id="cart-toggle-btn">
+        Cart <span class="cart-badge" id="cart-count">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Discover Amazing<br/>Products</h1>
+    <p>Explore different products fetched directly from our online product API.</p>
+    <a href="#products" class="hero-btn">Explore Products</a>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <h3>Categories</h3>
+    <div class="category-buttons" id="category-buttons">
+      <button class="cat-btn active" data-category="all">All</button>
+      <button class="cat-btn" data-category="beauty">Beauty</button>
+      <button class="cat-btn" data-category="fragrances">Fragrances</button>
+      <button class="cat-btn" data-category="furniture">Furniture</button>
+      <button class="cat-btn" data-category="groceries">Groceries</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <h2>Our Products</h2>
+    
+    <!-- Product Container (Grid / Flex) -->
+    <div class="products-container grid-layout" id="products-container">
+      <p class="loading-text">Loading products...</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <h3>About ShopEasy</h3>
+    <p>ShopEasy is a beginner-friendly shopping website created using HTML, CSS, and JavaScript.</p>
+    <p class="sub-text">Product information is dynamically fetched from an API.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><strong>ShopEasy</strong></p>
+    <p>Beginner JavaScript API Project</p>
+    <p>&copy; 2026 ShopEasy. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Cart Modal / Sidebar -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <button class="close-cart" id="close-cart-btn">&times;</button>
+      </div>
+
+      <div class="cart-items" id="cart-items">
+        <p class="empty-cart-msg">Your cart is currently empty.</p>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="shopEasy.js"></script>
+</body>
+</html>
