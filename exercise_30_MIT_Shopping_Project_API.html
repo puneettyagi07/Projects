@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEasy</title>
+
+    <link rel="stylesheet" href="exercise_30_MIT_Shopping_Project_API.css" />
+  </head>
+  <body>
+
+    <!-- Top Navigation Bar -->
+    <header>
+      <nav class="navBar">
+        <div class="logo">ShopEasy</div>
+        <ul class="menuList">
+          <li><a href="#home"></a>Home</li>
+          <li><a href="#products"></a>Products</li>
+          <li><a href="#about"></a>About</li>
+        </ul>
+        <button class="cartBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+            <!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+            <path
+              d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z"
+            />
+          </svg>
+          Cart
+          <span class="cartValue">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+    <h1>Discover Amazing<br/>Products</h1>
+    <p>Explore different products fetched directly from our online product API.</p>
+    <button class="hero-btn"><a href="#products">Explore Products</a></button> 
+  </section>
+
+    <!-- Categories Section -->
+  <section class="categories-section">
+    <h3>Categories</h3>
+    <div class="category-buttons" id="category-buttons">
+      <button class="cat-btn active" data-category="all">All</button>
+      <button class="cat-btn" data-category="beauty">Beauty</button>
+      <button class="cat-btn" data-category="fragrances">Fragrances</button>
+      <button class="cat-btn" data-category="furniture">Furniture</button>
+      <button class="cat-btn" data-category="groceries">Groceries</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <h2>Our Products</h2>
+    
+    <!-- Product Container (Grid / Flex) -->
+
+    <div class="product-container"> 
+        <!-- <p>Loading...</p> -->
+
+    <!-- <div class="productCard">
+        <div class="card-img">
+            <img src="" alt="">
+        </div>
+        <h4 class="card-title"></h4>
+        <p class="card-category"></p>
+        <p class="card-price"></p>
+        <p class="card-rating"><span class="rating-star">★</span></p>
+        <button class="add-cart-btn">Add to Cart</button>
+    </div>  -->
+    </div>
+    
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <h3>About ShopEasy</h3>
+    <p>ShopEasy is a beginner-friendly shopping website created using HTML, CSS, and JavaScript.</p>
+    <p class="sub-text">Product information is dynamically fetched from an API.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><strong>ShopEasy</strong></p>
+    <p>Beginner JavaScript API Project</p>
+    <p>&copy; 2026 ShopEasy. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Cart Modal / Sidebar -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <button class="close-cart" id="close-cart-btn">&times;</button>
+      </div>
+
+      <div class="cart-items" id="cart-items">
+        <p class="empty-cart-msg">Your cart is currently empty.</p>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+
+
+    <script src="exercise_30_MIT_Shopping_Project_API.js"></script>
+  </body>
+</html>
