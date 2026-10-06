@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Home</title>
+
+    <link rel="stylesheet" href="spotify.css" />
+  </head>
+  <body>
+    <header class="headerContainer">
+      <nav class="navContainer">
+        <div class="navLeft">
+        <div class="logo">
+          <svg viewBox="0 0 24 24">
+            <title>Spotify</title>
+            <path
+              d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 10.02 15 10.68 18.72 12.9c.361.181.54.78.24 1.14zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"
+            ></path>
+          </svg>
+        </div>
+        <div class="homeBtn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732z"
+            ></path>
+          </svg>
+        </div>
+        <div class="searchBar">
+          <div class="searchLogo">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
+              ></path>
+            </svg>
+          </div>
+          <input
+            type="search"
+            name="search"
+            id="songSerch"
+            placeholder="What do you want to play?"
+          />
+          <hr />
+          <div class="browseFileLogo">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4H4zM1.513 9.37A1 1 0 0 1 2.291 9H21.71a1 1 0 0 1 .978 1.208l-2.17 10.208A2 2 0 0 1 18.562 22H5.438a2 2 0 0 1-1.956-1.584l-2.17-10.208a1 1 0 0 1 .201-.837zM12 17.834c1.933 0 3.5-1.044 3.5-2.333s-1.567-2.333-3.5-2.333S8.5 14.21 8.5 15.5s1.567 2.333 3.5 2.333z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        </div>
+        <div class="navRight">
+            <div class="navMenu">
+                <ul>
+                    <li>Premium</li>
+                    <li>Support</li>
+                    <li>Download</li>
+                </ul>
+            </div>
+            <hr>
+            
+            <a href="#"> <span><svg viewBox="0 0 16 16"><path d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528-.005-.005-2.472-2.473a.75.75 0 0 1 0-1.06"></path><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13"></path></svg></span> Install App</a>
+            <a href="#">Sign up</a>
+            <button class="loginBtn">Log in</button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="library">
+        <!-- Library Heading and buttton -->
+        <div class="createLibrary">
+          <p>Your Library</p>
+          <div class="createBtn">
+            <svg viewBox="0 0 16 16"><path d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75"></path></svg>
+            <span>Create</span>
+          </div>
+          </div>
+
+          <!-- Library Cards -->
+          <section class="libraryCards">
+            <div class="libraryBigCards">
+              <div class="cardInstruction">
+                <h4>Create your first playlist</h4>
+                <p>It's easy we'll help you</p>
+              </div>
+              <button class="cardBtn">Create Playlist</button>
+            </div>
+
+            <div class="libraryBigCards">
+              <div class="cardInstruction">
+                <h4>Let's find some podcasts to follow</h4>
+                <p>We'll keep you updated on new episodes</p>
+              </div>
+              <button class="cardBtn">Browse Podcasts</button>
+            </div>
+          </section>
+
+          <!-- Library Footer -->
+
+          <section class="libraryFooter">
+            <div class="complianceLink">
+              <ul>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Safety & PrivacyCenter</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">About Ads</a></li>
+                <li><a href="#">Accessibility</a></li>
+              </ul>
+              <a href="#">Cookies</a>
+            </div>
+            <button class="langBtn"><svg viewBox="0 0 16 16"><path d="M8.152 16H8a8 8 0 1 1 .152 0m-.41-14.202c-.226.273-.463.713-.677 1.323-.369 1.055-.626 2.496-.687 4.129h3.547c-.06-1.633-.318-3.074-.687-4.129-.213-.61-.45-1.05-.676-1.323-.194-.235-.326-.285-.385-.296h-.044c-.055.007-.19.052-.391.296M4.877 7.25c.062-1.771.34-3.386.773-4.624q.148-.427.329-.806a6.51 6.51 0 0 0-4.436 5.43zm-3.334 1.5a6.51 6.51 0 0 0 4.436 5.43 8 8 0 0 1-.33-.806c-.433-1.238-.71-2.853-.772-4.624zm4.835 0c.061 1.633.318 3.074.687 4.129.214.61.451 1.05.677 1.323.202.244.336.29.391.297l.044-.001c.06-.01.19-.061.385-.296.226-.273.463-.713.676-1.323.37-1.055.626-2.496.687-4.129zm5.048 0c-.061 1.771-.339 3.386-.772 4.624q-.123.353-.268.674a6.5 6.5 0 0 0 4.071-5.298zm3.031-1.5a6.51 6.51 0 0 0-4.071-5.298q.145.322.268.674c.433 1.238.711 2.853.772 4.624z"></path></svg> English</button>
+          </section>
+
+
+
+      </section>
+
+
+      <section class="songsMenu">
+
+      </section>
+    </main>
+
+    <script src="spotify.js"></script>
+  </body>
+</html>
