@@ -1,0 +1,367 @@
+:root {
+  /* ===== Brand Colors ===== */
+  --spotify-green: #1db954;
+  --spotify-green-hover: #1ed760;
+  --spotify-green-pressed: #1aa34a;
+
+  /* ===== Background Colors ===== */
+  --spotify-black: #000000;
+  --spotify-dark-black: #121212; /* main app background */
+  --spotify-light-black: #2b2b2b; /* cards, sidebar */
+  --spotify-elevated-black: #1a1a1a; /* hover state on cards */
+  --spotify-highlight-black: #282828; /* card hover background */
+  --spotify-pressed-black: #2a2a2a;
+
+  /* ===== Text Colors ===== */
+  --spotify-text-primary: #ffffff;
+  --spotify-text-secondary: #b3b3b3;
+  --spotify-text-subdued: #a7a7a7;
+  --spotify-text-disabled: #6a6a6a;
+  --spotify-text-black: #000000;
+
+  /* ===== Placeholder ===== */
+  --spotify-placeholder: #b3b3b3;
+
+  /* ===== Font Family ===== */
+  --spotify-font:
+    "Circular Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* ===== Font Sizes ===== */
+  --spotify-fs-xs-11: 11px;
+  --spotify-fs-sm-12: 12px;
+  --spotify-fs-base-14: 14px;
+  --spotify-fs-md-16: 16px;
+  --spotify-fs-lg-19: 19px;
+  --spotify-fs-xl-24: 24px;
+  --spotify-fs-2xl-32: 32px;
+  --spotify-fs-3xl-48: 48px;
+  --spotify-fs-hero-96: 96px;
+
+  /* ===== Font Weights ===== */
+  --spotify-fw-regular: 400;
+  --spotify-fw-medium: 500;
+  --spotify-fw-bold: 700;
+  --spotify-fw-black: 900;
+
+  /* ===== Borders ===== */
+  --spotify-border-color: #2a2a2a;
+  --spotify-border-light: #6e6e6e;
+  --spotify-border-width: 1px;
+  --spotify-border: var(--spotify-border-width) solid
+    var(--spotify-border-color);
+
+  /* ===== Border Radius ===== */
+  --spotify-radius-4: 4px; /* small elements */
+  --spotify-radius-8: 8px; /* cards */
+  --spotify-radius-12: 12px; /* larger cards / modals */
+  --spotify-radius-search-24: 24px; /* search bar */
+  --spotify-radius-chip-16: 16px; /* filter chips */
+  --spotify-radius-button-500: 500px; /* pill-shaped buttons */
+  --spotify-radius-full: 50%; /* circular avatars/icons */
+
+  /* ===== Shadows ===== */
+  --spotify-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --spotify-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --spotify-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --spotify-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --spotify-shadow-player-bar: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  --spotify-shadow-color: rgba(0, 0, 0, 0.5);
+
+  /* ===== Card Dimensions ===== */
+  --spotify-card-width: 180px;
+  --spotify-card-height: 240px;
+  --spotify-card-img-height: 156px;
+  --spotify-card-padding: 16px;
+
+  /* ===== Search Bar ===== */
+  --spotify-search-height: 48px;
+  --spotify-search-bg: #242424;
+  --spotify-search-bg-active: #ffffff;
+
+  /* ===== Chip / Filter Pills ===== */
+  --spotify-chip-height: 32px;
+  --spotify-chip-bg: #333333;
+  --spotify-chip-bg-active: #ffffff;
+  --spotify-chip-padding: 8px 16px;
+
+  /* ===== Button Heights ===== */
+  --spotify-btn-height-32: 32px;
+  --spotify-btn-height-40: 40px;
+  --spotify-btn-height-48: 48px;
+
+  /* ===== Spacing ===== */
+  --spotify-space-4px: 4px;
+  --spotify-space-8px: 8px;
+  --spotify-space-16px: 16px;
+  --spotify-space-24px: 24px;
+  --spotify-space-32px: 32px;
+
+  /* ===== Transitions ===== */
+  --spotify-transition-fast: 0.15s ease;
+  --spotify-transition-base: 0.3s ease;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: var(--spotify-font);
+}
+body{
+  background-color: black;
+  color: var(--spotify-placeholder);
+}
+
+/* Nav Bar Section */
+.headerContainer {
+  height: fit-content;
+  width: 100%;
+  background-color: var(--spotify-black);
+  padding: var(--spotify-space-8px);
+}
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navLeft {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 22px 0px 22px;
+}
+.logo svg {
+  fill: #ffffff;
+  height: 32px;
+  width: 32px;
+}
+.homeBtn {
+  height: 46px;
+  width: 46px;
+  border-radius: var(--spotify-radius-full);
+  background-color: var(--spotify-light-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: var(--spotify-space-8px);
+}
+.homeBtn svg {
+  height: 26px;
+  width: 25px;
+  border-radius: 100%;
+  fill: #ffffff;
+}
+.searchBar {
+  height: var(--spotify-search-height);
+  width: fit-content;
+  padding: var(--spotify-space-4px);
+  background-color: var(--spotify-light-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: var(--spotify-space-8px);
+  border-radius: var(--spotify-radius-search-24);
+}
+.searchLogo svg {
+  fill: var(--spotify-placeholder);
+  height: 24px;
+  width: 24px;
+  margin: 4px 4px 0 8px;
+}
+.searchBar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--spotify-text-primary);
+  font-size: var(--spotify-fs-base-14);
+  margin-left: var(--spotify-space-8px);
+  width: 370px;
+}
+.searchBar input::placeholder {
+  color: var(--spotify-placeholder);
+  font-size: var(--spotify-fs-md-16);
+}
+.searchBar hr,
+.navRight hr {
+  border: none;
+  border-left: 1px solid var(--spotify-border-light);
+  height: 24px;
+  margin: 0 12px;
+}
+.browseFileLogo svg {
+  fill: #ffffff;
+  height: 24px;
+  width: 24px;
+  margin-right: var(--spotify-space-8px);
+}
+.navRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spotify-space-8px);
+  color: var(--spotify-placeholder);
+}
+.navMenu ul {
+  display: flex;
+  list-style-type: none;
+  gap: var(--spotify-space-8px);
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--spotify-fw-medium);
+}
+.navRight a {
+  display: flex;
+  align-items: center;
+  gap: var(--spotify-space-8px);
+  text-decoration: none;
+  color: var(--spotify-placeholder);
+  margin-left: var(--spotify-space-16px);
+  font-size: var(--spotify-fs-base-14);
+}
+.navRight span svg {
+  fill: #ffffff;
+  height: 16px;
+  width: 16px;
+}
+.loginBtn {
+  height: 48px;
+  width: 108px;
+  border: none;
+  outline: none;
+  border-radius: var(--spotify-radius-search-24);
+  background-color: var(--spotify-text-primary);
+  color: var(--spotify-text-black);
+  font-size: var(--spotify-fs-md-16);
+  font-weight: var(--spotify-fw-black);
+  margin-left: var(--spotify-space-4px);
+  cursor: pointer;
+}
+.loginBtn:active {
+  transform: scale(0.97);
+}
+
+/* Main Sections */
+main{
+  display: grid;
+  grid-template-columns: 1.3fr 3fr;
+  gap: 20px;
+  padding: 0 8px 0 8px;
+}
+
+/* Library Section */
+.library{
+  background-color: var(--spotify-elevated-black);
+  border-radius: var(--spotify-radius-8);
+  padding: 16px 8px;
+  height: 600px;
+}
+/* Library Heading and buttton */
+.createLibrary{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--spotify-text-primary);
+  font-weight: var(--spotify-fw-medium);
+  margin-bottom: var(--spotify-space-32px);
+  padding: 0px 8px;
+}
+.createBtn{
+  display: flex;
+  align-items: center;
+  gap: var(--spotify-space-8px);
+  background-color: var(--spotify-light-black);
+  border-radius: var(--spotify-radius-button-500);
+  padding: 8px 16px;
+  font-size: var(--spotify-fs-base-14);
+}
+.createBtn svg{
+  fill: var(--spotify-placeholder);
+  height: 16px;
+  width: 16px;
+}
+
+/* Library Cards */
+.libraryCards{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--spotify-space-24px);
+  margin-bottom: 50px;
+}
+.libraryBigCards{
+  padding: 16px 20px;
+  background-color: var(--spotify-light-black);
+  border-radius: var(--spotify-radius-8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spotify-space-16px);
+}
+.cardInstruction{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spotify-space-8px);
+  color: var(--spotify-text-primary);
+}
+.cardInstruction p{
+  font-size: var(--spotify-fs-base-14);
+  font-weight: var(--spotify-fw-regular);
+}
+.cardBtn{
+  padding: 8px 16px;
+  background-color: var(--spotify-text-primary);
+  border-radius: 9999px;
+  border: 1px solid var(--spotify-text-primary);
+  font-weight: var(--spotify-fw-bold);
+}
+/* Library Footer */
+.libraryFooter{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px var(--spotify-space-16px);
+}
+.complianceLink ul{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--spotify-space-8px);
+  column-gap: var(--spotify-space-24px);
+  list-style-type: none;
+  margin-bottom: var(--spotify-space-16px);
+}
+.complianceLink ul a{
+  text-decoration: none;
+  color: var(--spotify-placeholder);
+  font-size: var(--spotify-fs-sm-12);
+}
+.complianceLink a{
+  display: inline-block;
+  text-decoration: none;
+  color: var(--spotify-text-primary);
+  font-size: var(--spotify-fs-sm-12);
+  font-weight: var(--spotify-fw-regular);
+  margin-bottom: var(--spotify-space-32px);
+}
+.langBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spotify-space-8px);
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: var(--spotify-radius-button-500);
+  color: var(--spotify-text-primary);
+  padding: 8px 16px;
+}
+
+.langBtn svg{
+  height: 16px;
+  width: 16px;
+  fill: var(--spotify-text-primary);
+}
+
