@@ -1,14 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Song Window</title>
+    <style>
+        :root {
+            --spotify-black: #000000;
+            --spotify-dark-black: #121212;
+            --spotify-light-black: #282828;
+            --spotify-text-primary: #ffffff;
+            --spotify-placeholder: #b3b3b3;
+            --spotify-radius-8: 8px;
+            --spotify-radius-4: 4px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: var(--spotify-black);
+            color: var(--spotify-placeholder);
+            padding: 24px;
+        }
+
+        /* Song List Container on Main Page */
+        .songsContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .cardItem {
+            background-color: var(--spotify-dark-black);
+            padding: 16px;
+            border-radius: var(--spotify-radius-8);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .cardItem img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: var(--spotify-radius-4);
+            margin-bottom: 10px;
+        }
+
+        .cardItem h4 {
+            color: var(--spotify-text-primary);
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .cardItem p {
+            font-size: 13px;
+        }
+
+        .playBtnTrigger {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #1db954;
+            color: #000;
+            border: none;
+            border-radius: 500px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* 1. Full Page Blurred Popup Background */
+        .popUpOverlay {
+            position: fixed;
+            inset: 0; /* top: 0, left: 0, right: 0, bottom: 0 */
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: none; /* Default hidden */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popUpOverlay.show {
+            display: flex;
+        }
+
+        /* 2. Small 250px x 300px Popup Card */
+        .songModalCard {
+            width: 250px;
+            height: 320px;
+            background-color: rgba(35, 35, 35, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .closeModalBtn {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Inside Modal Song Cover */
+        .modalSongImg {
+            width: 190px;
+            height: 190px;
+            aspect-ratio: 1 / 1;
+            border-radius: var(--spotify-radius-8);
+            overflow: hidden;
+            margin-top: 10px;
+            margin-bottom: 14px;
+        }
+
+        .modalSongImg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .modalSongName {
+            color: var(--spotify-text-primary);
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .modalArtistName {
+            color: var(--spotify-placeholder);
+            font-size: 13px;
+        }
+    </style>
 </head>
+
 <body>
-    <main>
-        
-    </main>
-    
+    <!-- Songs Grid -->
+    <div class="songsContainer"></div>
+
+    <!-- Full-page Blur Backdrop & Modal Popup -->
+    <div class="popUpOverlay" id="popUpOverlay">
+        <div class="songModalCard">
+            <button class="closeModalBtn" id="closeModalBtn">&times;</button>
+            <div class="modalSongImg">
+                <img id="modalImg" src="" alt="Song Cover">
+            </div>
+            <h3 class="modalSongName" id="modalTitle"></h3>
+            <p class="modalArtistName" id="modalArtist"></p>
+        </div>
+    </div>
+
+    <script>
+        const songsContainer = document.querySelector(".songsContainer");
+        const popUpOverlay = document.getElementById("popUpOverlay");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+
+        const modalImg = document.getElementById("modalImg");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalArtist = document.getElementById("modalArtist");
+
+        const api = [
+            {
+                id: 0,
+                songTitle: "Alfaaz",
+                SongCover: "imges/songs/Alfaaz Hamza Malik x Zain Zohaib.png",
+                song: "songs/Alfaaz Hamza Malik x Zain Zohaib Official Visualiser.mp3",
+                artist: "Alfaaz Hamza",
+                artistImg: "imges/artists/hamza malik.jpeg",
+            },
+            {
+                id: 1,
+                songTitle: "Banger",
+                SongCover: "imges/songs/Banger.png",
+                song: "songs/BANGER (Official Music Video) Badshah x Sharvi x Hiten ft Aveera Singh _ #desihiphop [sY45iA7PFS8].mp3",
+                artist: "Badshah",
+                artistImg: "imges/artists/badshah.jpeg",
+            },
+            {
+                id: 2,
+                songTitle: "Bari",
+                SongCover: "imges/songs/bari Nijjar and jazz.png",
+                song: "songs/NIJJAR & Jazz Dee - Bari.mp4",
+                artist: "Nijjar",
+                artistImg: "imges/songs/bari Nijjar and jazz.png",
+            },
+            {
+                id: 3,
+                songTitle: "Sammi Meri",
+                SongCover: "imges/songs/coke studio season 8 sammi meri.png",
+                song: "songs/Rathinamo (feat. Tanisha Gnanavel) (Female Version) [SmXnQZ0Hvjw].mp3",
+                artist: "Umair Jaiswal",
+                artistImg: "imges/artists/umari jaiswal.jpeg",
+            },
+            {
+                id: 4,
+                songTitle: "Rathinamo",
+                SongCover: "imges/songs/rathinamo.png",
+                song: "songs/Rathinamo (feat. Tanisha Gnanavel) (Female Version) [SmXnQZ0Hvjw].mp3",
+                artist: "Tanisha Gnanavel",
+                artistImg: "imges/artists/tanisha gnanavel.jpeg",
+            },
+        ];
+
+        // Render Initial Cards
+        let cardsHTML = "";
+        api.forEach((item, index) => {
+            cardsHTML += `
+                <div class="cardItem">
+                    <img src="${item.SongCover}" alt="${item.songTitle}">
+                    <h4>${item.songTitle}</h4>
+                    <p>${item.artist}</p>
+                    <button class="playBtnTrigger" data-index="${index}">Play</button>
+                </div>
+            `;
+        });
+        songsContainer.innerHTML = cardsHTML;
+
+        // Open Popup on Play Button Click
+        const playButtons = document.querySelectorAll(".playBtnTrigger");
+        playButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const songIndex = btn.getAttribute("data-index");
+                const selectedSong = api[songIndex];
+
+                // Inject targeted data into modal
+                modalImg.src = selectedSong.SongCover;
+                modalTitle.textContent = selectedSong.songTitle;
+                modalArtist.textContent = selectedSong.artist;
+
+                popUpOverlay.classList.add("show");
+            });
+        });
+
+        // Close Popup
+        closeModalBtn.addEventListener("click", () => {
+            popUpOverlay.classList.remove("show");
+        });
+
+        // Close Popup on background blur click
+        popUpOverlay.addEventListener("click", (e) => {
+            if (e.target === popUpOverlay) {
+                popUpOverlay.classList.remove("show");
+            }
+        });
+    </script>
 </body>
+
 </html>
