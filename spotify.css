@@ -741,5 +741,87 @@ main {
   color: var(--spotify-text-primary);
 }
 
+/* Full-Page Blur Overlay */
+.popUpOverlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popUpOverlay.show {
+  display: flex;
+}
+
+/* 250px by 300px Centered Modal Card */
+.songModalCard {
+  width: 250px;
+  height: 310px;
+  background-color: rgba(28, 28, 28, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  border-radius: var(--spotify-radius-12);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: var(--spotify-placeholder);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.closeModalBtn:hover {
+  color: #ffffff;
+}
+
+.modalSongImg {
+  width: 180px;
+  height: 180px;
+  border-radius: var(--spotify-radius-8);
+  overflow: hidden;
+  margin-top: 14px;
+  margin-bottom: 12px;
+}
+
+.modalSongImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modalSongName {
+  color: var(--spotify-text-primary);
+  font-size: var(--spotify-fs-md-16);
+  font-weight: var(--spotify-fw-bold);
+  margin-bottom: 4px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modalArtistName {
+  color: var(--spotify-placeholder);
+  font-size: var(--spotify-fs-sm-12);
+}
 
 
